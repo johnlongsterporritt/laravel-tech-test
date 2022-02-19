@@ -39,5 +39,6 @@ class IngestInitial extends Command
     {
         $this->call('ingest:regions');
         $this->call('ingest:authorities');
+        $this->call('ingest:establishments');
     }
 }
