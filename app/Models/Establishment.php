@@ -21,4 +21,9 @@ class Establishment extends Model
         'authority_id',
         'fhrs_id'
     ];
+
+    public function authority()
+    {
+        return $this->belongsTo(Authority::class, 'authority_id', 'id');
+    }
 }
