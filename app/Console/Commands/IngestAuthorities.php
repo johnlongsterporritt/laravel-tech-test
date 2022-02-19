@@ -14,7 +14,7 @@ class IngestAuthorities extends Command
      *
      * @var string
      */
-    protected $signature = 'ingest:authorities {--fresh=false}';
+    protected $signature = 'ingest:authorities';
 
     /**
      * The console command description.
@@ -43,12 +43,6 @@ class IngestAuthorities extends Command
     public function handle()
     {
         $this->verbose = $this->option('verbose');
-        $fresh = $this->option('fresh')  || false;
-
-        if ($fresh) {
-            Authority::truncate();
-            $this->verboseMessageInfo("Purged Authorities Table...");
-        }
 
         $this->info("Starting Authorities Ingestion...");
         $client = new Client([

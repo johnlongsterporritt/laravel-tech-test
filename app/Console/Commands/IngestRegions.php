@@ -42,12 +42,6 @@ class IngestRegions extends Command
     public function handle()
     {
         $this->verbose = $this->option('verbose');
-        $fresh = $this->option('fresh') || false;
-
-        if ($fresh) {
-            Region::truncate();
-            $this->verboseMessageInfo("Purged Region Table...");
-        }
 
         $this->info("Starting Region Ingestion...");
         $client = new Client([

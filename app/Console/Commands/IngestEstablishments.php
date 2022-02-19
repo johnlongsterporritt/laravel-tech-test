@@ -15,7 +15,7 @@ class IngestEstablishments extends Command
      *
      * @var string
      */
-    protected $signature = 'ingest:establishments {--fresh=false}';
+    protected $signature = 'ingest:establishments';
 
     /**
      * The console command description.
@@ -44,12 +44,6 @@ class IngestEstablishments extends Command
     public function handle()
     {
         $this->verbose = $this->option('verbose');
-        $fresh = $this->option('fresh') || false;
-
-        if ($fresh) {
-            Establishment::truncate();
-            $this->verboseMessageInfo("Purged Establishments Table...");
-        }
 
         $this->info("Starting Authorities Ingestion...");
 
