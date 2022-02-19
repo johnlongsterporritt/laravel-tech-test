@@ -21,21 +21,23 @@ class IndexController extends Controller
         $validatedData = $request->validate([
             'region' => 'int|nullable',
             'authority' => 'int|nullable',
+            'sort' => 'nullable',
         ]);
 
         $region = null;
         $authority = null;
         $establishments = null;
+        $sort = $validatedData['sort'] ?? null;
 
         if (isset($validatedData['region'])) {
             if ($region = $validatedData['region']) {
-                $establishments = EstablishmentController::getEstablishmentsByRegion($region);
+                $establishments = EstablishmentController::getEstablishmentsByRegion($region, $sort);
             }
         }
 
         if (isset($validatedData['authority'])) {
             if ($authority = $validatedData['authority']) {
-                $establishments = EstablishmentController::getEstablishmentsByAuthority($authority);
+                $establishments = EstablishmentController::getEstablishmentsByAuthority($authority, $sort);
             }
         }
 

@@ -30,6 +30,14 @@
                                 <option value="{{$region->fhrs_id}}" {{ isset($regionSelect) && $region->fhrs_id == $regionSelect ? "selected" : "" }}>{{$region->name}}</option>
                             @endforeach
                         </select>
+
+                        <select name="sort" required>
+                            <option value="rating,desc">Rating, High > Low</option>
+                            <option value="rating,asc">Rating, Low > High</option>
+                            <option value="name,asc">Name, A > Z</option>
+                            <option value="name,desc">Name, Z > A</option>
+                        </select>
+
                         <br>
                         <br>
                         <input type="submit">
@@ -47,6 +55,14 @@
                                 <option value="{{$authority->authority_id}}" {{ isset($authoritySelect) && $authority->authority_id == $authoritySelect ? "selected" : "" }}>{{$authority->name}}</option>
                             @endforeach
                         </select>
+
+                        <select name="sort" required>
+                            <option value="rating,desc">Rating, High > Low</option>
+                            <option value="rating,asc">Rating, Low > High</option>
+                            <option value="name,asc">Name, A > Z</option>
+                            <option value="name,desc">Name, Z > A</option>
+                        </select>
+
                         <br>
                         <br>
                         <input type="submit">
@@ -61,7 +77,7 @@
                     @foreach($establishments as $establishment)
                         <div class="col-12">
                             <p class="h4">{{$establishment->name}}</p>
-                            <p class="h6">Rating: {{$establishment->rating}}</p>
+                            <p class="h6">Rating: {{$establishment->rating ?? 0}}</p>
                             <p class="dark:text-gray-500">{{$establishment->business_type}}</p>
                             <p>{{$establishment->address}}</p>
                             <p>{{$establishment->authority()->first()->name}}</p>
