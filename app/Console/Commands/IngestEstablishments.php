@@ -81,7 +81,7 @@ class IngestEstablishments extends Command
                             'business_type' => $establishment->BusinessType,
                             'address' => $address,
                             'phone' => $establishment->Phone,
-                            'rating' => $establishment->RatingValue,
+                            'rating' => $establishment->scores->Hygiene,
                             'region_id' => $authority->region_id,
                             'authority_id' => $authority->authority_id,
                             'fhrs_id' => $establishment->FHRSID,

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('business_type');
             $table->string('address');
-            $table->string('phone');
-            $table->string('rating');
+            $table->string('phone')->nullable();
+            $table->string('rating')->nullable();
             $table->integer('region_id');
             $table->integer('authority_id');
             $table->integer('fhrs_id')->unique();
