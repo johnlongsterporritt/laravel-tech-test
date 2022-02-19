@@ -42,7 +42,7 @@ class IngestRegions extends Command
     public function handle()
     {
         $this->verbose = $this->option('verbose');
-        $fresh = $this->option('fresh');
+        $fresh = $this->option('fresh') || false;
 
         if ($fresh) {
             Region::truncate();
